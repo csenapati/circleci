@@ -1,0 +1,13 @@
+machine:
+  java:
+    version: openjdk8
+  environment:
+    JDBC_URL: jdbc:postgresql://localhost:5432/circle_test
+    JDBC_USER: ubuntu  
+
+test:
+  override:
+    - mvn -Dspring.profiles.active=circleci integration-test
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;    

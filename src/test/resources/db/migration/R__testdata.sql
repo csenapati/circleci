@@ -1,0 +1,1 @@
+insert into mytest_flyway values(1,'Samir');

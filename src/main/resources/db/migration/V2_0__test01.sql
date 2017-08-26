@@ -1,0 +1,1 @@
+create table mytest_flyway( id integer, name text);
